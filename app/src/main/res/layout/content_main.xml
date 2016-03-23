@@ -9,7 +9,60 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.pplnostra.login.MainActivity"
-    tools:showIn="@layout/app_bar_main">
+    tools:context="com.pplnostra.trynavdraw.MainActivity"
+    tools:showIn="@layout/app_bar_main"
+    android:weightSum="1">
+
+
+    <ImageView
+        android:layout_width="88dp"
+        android:layout_height="88dp"
+        android:src="@drawable/profile"
+        android:id="@+id/profile_picture" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="32dp"
+        android:text="Newbie"
+        android:textSize="20dp"
+        android:id="@+id/level"
+        android:layout_weight="0.77"
+        android:textStyle="bold"
+
+        android:layout_marginTop="56dp"
+        android:layout_alignLeft="@+id/name"
+        android:layout_alignStart="@+id/name" />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="32dp"
+        android:text="Member since doloe"
+        android:textSize="16dp"
+        android:id="@+id/member"
+        android:layout_weight="0.77"
+
+
+        android:layout_marginTop="36dp"
+        android:layout_alignLeft="@+id/name"
+        android:layout_alignStart="@+id/name" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="32dp"
+        android:text="Caca Novela"
+        android:textStyle="bold"
+        android:textSize="20dp"
+        android:id="@+id/name"
+        android:layout_weight="0.77"
+
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="20dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="12dp"
+        android:layout_toRightOf="@+id/profile_picture"
+        android:layout_toEndOf="@+id/profile_picture" />
+
+
+
 
 </RelativeLayout>

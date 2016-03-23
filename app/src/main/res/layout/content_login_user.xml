@@ -11,14 +11,10 @@
     android:orientation="vertical"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.pplnostra.loginpickle.login"
-    tools:showIn="@layout/activity_login_user">
-
-
-
-
+    tools:showIn="@layout/activity_login">
 
     <ImageView
-        android:layout_marginTop="64dp"
+        android:layout_marginTop="108dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:adjustViewBounds="true"
@@ -28,17 +24,13 @@
         android:layout_gravity="center"
         android:src="@drawable/brandinglogo" />
 
-    <Button
-        android:id="@+id/bFacebookSignIn"
-        android:text="Sign In With Facebook"
-        android:textColor="#fff"
-        android:textSize="16dp"
-        android:paddingLeft="8dp"
-        android:paddingRight="8dp"
-        android:background="#1565C0"
+    <com.facebook.login.widget.LoginButton
+        android:id="@+id/login_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="32dp"/>
+        android:layout_marginTop="16dp"
+        />
 
 </LinearLayout>

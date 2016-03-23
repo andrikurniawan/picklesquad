@@ -1,6 +1,7 @@
 package com.pplnostra.login;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -9,9 +10,8 @@ import android.widget.EditText;
 
 public class CompletingForm extends AppCompatActivity implements View.OnClickListener {
 
+    private EditText etName, etEmail, etPhoneNumber, etBirthday, etGender;
     Button bNext;
-    EditText etName, etEmail, etPhoneNumber, etBirthday , etGender;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,31 +23,44 @@ public class CompletingForm extends AppCompatActivity implements View.OnClickLis
         etPhoneNumber = (EditText) findViewById(R.id.etPhoneNumber);
         etBirthday = (EditText) findViewById(R.id.etBirthday);
         etGender = (EditText) findViewById(R.id.etGender);
-        bNext = (Button)findViewById(R.id.bNext);
+        bNext = (Button) findViewById(R.id.bNext);
 
-        bNext.setOnClickListener(this);
+        bNext.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SharedPreferences shared = getSharedPreferences(getResources().getString(R.string.KEY_SHARED_PREF), MODE_PRIVATE);
+                SharedPreferences.Editor editor = shared.edit();
+                editor.putString("phoneNumber", etPhoneNumber.getText().toString());
+                editor.putString("birthday", etBirthday.getText().toString());
+                editor.putString("gender", etGender.getText().toString());
+                editor.commit();
 
+                Intent in = new Intent(CompletingForm.this, MainActivity.class);
+                startActivity(in);
+                finish();
+            }
+        });
     }
 
-    @Override
-    public void onStart(){
+    public void onStart() {
         super.onStart();
         display();
-    }
-    public void display(){
-        //ambil data masukan kesini menggunakan etName.setText(blabla);
-
     }
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()){
-            case R.id.bNext:
-                startActivity(new Intent(this, com.pplnostra.login.MainActivity.class));
-                break;
 
-        }
     }
 
+    public void display() {
+        SharedPreferences shared = getSharedPreferences(getResources().getString(R.string.KEY_SHARED_PREF), MODE_PRIVATE);
+        String userName = shared.getString("name", "");
+        etName.setText(userName);
 
+        String email = shared.getString("email", "");
+        etEmail.setText(email);
+
+        String bod = shared.getString("birthday","");
+        etBirthday.setText(bod);
+    }
 }
