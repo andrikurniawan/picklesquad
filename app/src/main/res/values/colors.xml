@@ -6,4 +6,6 @@
     <color name="accentDark">#FF6E40</color>
     <color name="white">#FFFFFF</color>
     <color name="textHint">#616161</color>
+    <color name="orange">#FFA000</color>
+    <color name="blue">#42A5F5</color>
 </resources>
