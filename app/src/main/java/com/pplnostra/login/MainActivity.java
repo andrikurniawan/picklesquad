@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
 
         FacebookSdk.sdkInitialize(getApplicationContext());
-
+        // tes
         session = new UserSessionManager(getApplicationContext());
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
